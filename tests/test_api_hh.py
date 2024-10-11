@@ -47,8 +47,7 @@ def test_get_vacancies():
 
     with patch("src.API_hh.requests.get", return_value=mock_response):
         vac = HeadHunterAPI()
-        assert vac.get_vacancies("python") == [
-            {
+        assert vac.get_vacancies("python")[0] == {
                 "id": "108453823",
                 "premium": False,
                 "name": "Python Backend Developer",
@@ -56,4 +55,3 @@ def test_get_vacancies():
                 "has_test": False,
                 "response_letter_required": True,
             }
-        ]

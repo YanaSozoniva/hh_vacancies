@@ -43,7 +43,6 @@ class HeadHunterAPI(BaseHH):
             if len(response.json()["items"]) <= 0:
                 raise ValueError("По указанному запросу нет вакансий")
             else:
-                print(response.json())
                 vacancies = response.json()["items"]
                 self.__vacancies.extend(vacancies)
                 self.__params["page"] += 1
@@ -52,4 +51,4 @@ class HeadHunterAPI(BaseHH):
 
 # if __name__ == '__main__':
 #     vac = HeadHunterAPI()
-#     print(vac.get_vacancies(keyword='python'))
+#     print(vac.get_vacancies(keyword='python')[0])
