@@ -38,7 +38,7 @@ class HeadHunterAPI(BaseHH):
         """Метод получения вакансия с сайта hh.ry"""
         self.__params["text"] = keyword
 
-        while self.__params.get("page") != 20 and self.__is_connect():
+        while self.__params.get("page") != 1 and self.__is_connect():
             response = requests.get(self.__url, params=self.__params)
             if len(response.json()["items"]) <= 0:
                 raise ValueError("По указанному запросу нет вакансий")
@@ -49,6 +49,6 @@ class HeadHunterAPI(BaseHH):
         return self.__vacancies
 
 
-# if __name__ == '__main__':
-#     vac = HeadHunterAPI()
-#     print(vac.get_vacancies(keyword='python')[0])
+if __name__ == '__main__':
+    vac = HeadHunterAPI()
+    print(vac.get_vacancies(keyword='python'))

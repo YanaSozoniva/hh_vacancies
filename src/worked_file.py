@@ -5,16 +5,16 @@ class WorkedFile(ABC):
     """Абстрактый класс для работы с файлами"""
 
     @abstractmethod
-    def read_file(self, file_name):
+    def read_file(self) -> dict | str:
         """Абстрактный метод для чтения файла"""
         pass
 
     @abstractmethod
-    def write_file(self, file_name):
+    def write_file(self, vacancy) -> None:
         """Абстрактный метод для добавления данных в файл"""
         pass
 
     @abstractmethod
-    def delete_info_from_file(self, file_name):
-        """Абстрактный метод для добавления данных в файл"""
+    def delete_info_from_file(self, vacancy) -> None:
+        """Абстрактный метод для удаления данных из файла"""
         pass
