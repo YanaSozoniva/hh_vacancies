@@ -88,9 +88,10 @@ class JsonFile(WorkedFile):
 #     '90': 'https://img.hhcdn.ru/employer-logo/4134540.png'},
 #     'vacancies_url': 'https://api.hh.ru/vacancies?employer_id=5674346',
 #     'accredited_it_employer': False, 'trusted': True},
-#     'snippet': {'requirement': 'Коммерческий опыт создания веб-приложений с использованием
-#     <highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) от 1 года.
-#     Знание <highlighttext>Python</highlighttext> Core и встроенной...', 'responsibility': None},
+#     'snippet': {'requirement': 'Коммерческий опыт создания веб-приложений с использованием '
+#                                '<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) от 1 года.'
+#                                'Знание <highlighttext>Python</highlighttext> Core и встроенной...',
+#                 'responsibility': None},
 #     'contacts': None, 'schedule': {'id': 'fullDay', 'name': 'Полный день'}, 'working_days': [],
 #     'working_time_intervals': [], 'working_time_modes': [], 'accept_temporary': False,
 #     'professional_roles': [{'id': '96', 'name': 'Программист, разработчик'}],
