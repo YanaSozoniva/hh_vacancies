@@ -1,5 +1,6 @@
-from src.vacancies import Vacancy
 import pytest
+
+from src.vacancies import Vacancy
 
 
 def test_vacancies_init(vacancy_1):
@@ -32,10 +33,12 @@ def test_vacancies_str(vacancy_1):
 def test_cast_to_object_list(vacan_list):
     """Тестирование метода преобразования списка словарей вакансия в список объектов класса Vacancy"""
     result = Vacancy.cast_to_object_list(vacan_list)
-    assert str(result[0]) == ('Python Backend Developer, зарплата 200000 - 250000 руб. Требования: '
-                              'Уверенные знания <highlighttext>Python</highlighttext> (3.10) и опыт разработки'
-                              ' на нем от менее 6 месяцев. ⦁ Опыт работы с фреймворками: Flask, FastApi.... '
-                              'Полная информация по ссылке: https://hh.ru/vacancy/108453823')
+    assert str(result[0]) == (
+        "Python Backend Developer, зарплата 200000 - 250000 руб. Требования: "
+        "Уверенные знания <highlighttext>Python</highlighttext> (3.10) и опыт разработки"
+        " на нем от менее 6 месяцев. ⦁ Опыт работы с фреймворками: Flask, FastApi.... "
+        "Полная информация по ссылке: https://hh.ru/vacancy/108453823"
+    )
 
 
 def test_equality_vacancies_other_type(vacancy_1):

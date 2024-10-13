@@ -32,7 +32,7 @@ class Vacancy:
             name = vacancy["name"]
             url = vacancy["alternate_url"]
             requirements = vacancy["snippet"]["requirement"]
-            if vacancy['salary'] is None:
+            if vacancy["salary"] is None:
                 salary_from, salary_to = None, None
             else:
                 salary_from = vacancy["salary"]["from"]

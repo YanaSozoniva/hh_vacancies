@@ -1,7 +1,7 @@
 import pytest
 
-from src.vacancies import Vacancy
 from src.json_file import JsonFile
+from src.vacancies import Vacancy
 
 
 @pytest.fixture
@@ -32,32 +32,89 @@ def json_data():
 @pytest.fixture
 def vacan_list():
     """Фикстура, создающая список словарей с вакансиями"""
-    test_list = [{
-        'id': '108453823', 'premium': False, 'name': 'Python Backend Developer',
-                  'department': None, 'salary': {'from': 200000, 'to': 250000, 'currency': 'KZT', 'gross': False},
-                  'response_url': None, 'archived': False,
-                  'apply_alternate_url': 'https://hh.ru/applicant/vacancy_response?vacancyId=108453823',
-                  'url': 'https://api.hh.ru/vacancies/108453823?host=hh.ru',
-                  'alternate_url': 'https://hh.ru/vacancy/108453823',
-                  'snippet': {'requirement': 'Уверенные знания <highlighttext>Python</highlighttext> (3.10) и '
-                            'опыт разработки на нем от менее 6 месяцев. ⦁ Опыт работы с фреймворками: Flask, FastApi...',
-                              'responsibility': 'Разработка и поддержка серверной части для WhatsApp ботов на'
-                            ' <highlighttext>Python</highlighttext>. ⦁ Интеграция с внешними API и базами данных (PostgreSQL). ⦁ '},
-                  'working_time_modes': [], 'accept_temporary': False, 'is_adv_vacancy': False, 'adv_context': None
-                  },
-                 {'id': '108424453', 'premium': False, 'name': 'Python Developer (Remote)', 'department': None,
-                  'salary': None,
-                  'alternate_url': 'https://hh.ru/vacancy/108424453', 'relations': [],
-                  'snippet': {
-                     'requirement': 'Коммерческий опыт создания веб-приложений с использованием <highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной...',
-                     'responsibility': None}, 'contacts': None, 'schedule': {'id': 'fullDay', 'name': 'Полный день'},
-                  'working_days': [], 'working_time_intervals': [], 'working_time_modes': [], 'accept_temporary': False,
-                  'professional_roles': [{'id': '96', 'name': 'Программист, разработчик'}],
-                  'accept_incomplete_resumes': False,
-                  'experience': {'id': 'between1And3', 'name': 'От 1 года до 3 лет'},
-                  'employment': {'id': 'full', 'name': 'Полная занятость'}, 'adv_response_url': None,
-                  'is_adv_vacancy': False, 'adv_context': None}
-                 ]
+    test_list = [
+        {
+            "id": "108453823",
+            "premium": False,
+            "name": "Python Backend Developer",
+            "department": None,
+            "salary": {"from": 200000, "to": 250000, "currency": "KZT", "gross": False},
+            "response_url": None,
+            "archived": False,
+            "apply_alternate_url": "https://hh.ru/applicant/vacancy_response?vacancyId=108453823",
+            "url": "https://api.hh.ru/vacancies/108453823?host=hh.ru",
+            "alternate_url": "https://hh.ru/vacancy/108453823",
+            "snippet": {
+                "requirement": "Уверенные знания <highlighttext>Python</highlighttext> (3.10) и "
+                "опыт разработки на нем от менее 6 месяцев. ⦁ Опыт работы с фреймворками: Flask, FastApi...",
+                "responsibility": "Разработка и поддержка серверной части для WhatsApp ботов на"
+                " <highlighttext>Python</highlighttext>. ⦁ Интеграция с внешними API и базами данных (PostgreSQL). ⦁ ",
+            },
+            "working_time_modes": [],
+            "accept_temporary": False,
+            "is_adv_vacancy": False,
+            "adv_context": None,
+        },
+        {
+            "id": "108424453",
+            "premium": False,
+            "name": "Python Developer (Remote)",
+            "department": None,
+            "salary": None,
+            "alternate_url": "https://hh.ru/vacancy/108424453",
+            "relations": [],
+            "snippet": {
+                "requirement": "Коммерческий опыт создания веб-приложений с использованием "
+                               "<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) "
+                               "от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной...",
+                "responsibility": None,
+            },
+            "contacts": None,
+            "schedule": {"id": "fullDay", "name": "Полный день"},
+            "working_days": [],
+            "working_time_intervals": [],
+            "working_time_modes": [],
+            "accept_temporary": False,
+            "professional_roles": [{"id": "96", "name": "Программист, разработчик"}],
+            "accept_incomplete_resumes": False,
+            "experience": {"id": "between1And3", "name": "От 1 года до 3 лет"},
+            "employment": {"id": "full", "name": "Полная занятость"},
+            "adv_response_url": None,
+            "is_adv_vacancy": False,
+            "adv_context": None,
+        },
+    ]
     return test_list
 
 
+@pytest.fixture
+def vacancy_json():
+    vacancy = {
+        "id": "108424453",
+        "premium": False,
+        "name": "Python Developer (Remote)",
+        "department": None,
+        "salary": None,
+        "alternate_url": "https://hh.ru/vacancy/108424453",
+        "relations": [],
+        "snippet": {
+            "requirement": "Коммерческий опыт создания веб-приложений с использованием "
+                           "<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask)"
+                           " от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной...",
+            "responsibility": None,
+        },
+        "contacts": None,
+        "schedule": {"id": "fullDay", "name": "Полный день"},
+        "working_days": [],
+        "working_time_intervals": [],
+        "working_time_modes": [],
+        "accept_temporary": False,
+        "professional_roles": [{"id": "96", "name": "Программист, разработчик"}],
+        "accept_incomplete_resumes": False,
+        "experience": {"id": "between1And3", "name": "От 1 года до 3 лет"},
+        "employment": {"id": "full", "name": "Полная занятость"},
+        "adv_response_url": None,
+        "is_adv_vacancy": False,
+        "adv_context": None,
+    }
+    return vacancy

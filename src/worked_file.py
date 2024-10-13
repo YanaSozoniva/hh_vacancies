@@ -10,11 +10,11 @@ class WorkedFile(ABC):
         pass
 
     @abstractmethod
-    def write_file(self, vacancy) -> None:
+    def write_file(self, vacancy: list[dict]) -> None:
         """Абстрактный метод для добавления данных в файл"""
         pass
 
     @abstractmethod
-    def delete_info_from_file(self, vacancy) -> None:
+    def delete_info_from_file(self, vacancy_del: dict) -> None:
         """Абстрактный метод для удаления данных из файла"""
         pass

@@ -49,6 +49,6 @@ class HeadHunterAPI(BaseHH):
         return self.__vacancies
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     vac = HeadHunterAPI()
-    print(vac.get_vacancies(keyword='python'))
+    print(vac.get_vacancies(keyword="python"))
