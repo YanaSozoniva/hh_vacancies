@@ -68,3 +68,14 @@ def test_more_vacancies(vacancy_1):
     """Тестирование сравнения на большее"""
     vacancy = Vacancy("Python Developer", "<https://hh.ru/vacancy/123456>", "опыт работы от 3 лет")
     assert vacancy_1 > vacancy
+
+
+def test_convert_to_json(vacancy_2):
+    """Тестирование преобразования объекта класса Вакансия в словарь"""
+    dict_vacan = vacancy_2.convert_to_json()
+    assert dict_vacan == {
+        "name": "Python backend",
+        "alternate_url": "<https://hh.ru/vacancy/123489>",
+        "snippet": {"requirement": "Опыт от 1 года"},
+        "salary": {"from": 10000, "to": 30000}
+                          }

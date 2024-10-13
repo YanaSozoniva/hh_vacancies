@@ -63,3 +63,13 @@ class Vacancy:
         if type(other) is Vacancy:
             return self.salary_from > other.salary_from
         raise TypeError
+
+    def convert_to_json(self) -> dict:
+        """Метод преобразования объекта класса Vacancy в словарь"""
+        vacancy_dict = {
+            "name": self.name,
+            "alternate_url": self.url,
+            "snippet": {"requirement": self.requirements},
+            "salary": {"from": self.salary_from, "to": self.salary_to}
+        }
+        return vacancy_dict
