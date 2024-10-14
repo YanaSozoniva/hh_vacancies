@@ -89,7 +89,8 @@ class JsonFile(WorkedFile):
 #     'vacancies_url': 'https://api.hh.ru/vacancies?employer_id=5674346',
 #     'accredited_it_employer': False, 'trusted': True},
 #     'snippet': {'requirement': 'Коммерческий опыт создания веб-приложений с использованием '
-#                                '<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) от 1 года.'
+#                                '<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask)
+#                                от 1 года.'
 #                                'Знание <highlighttext>Python</highlighttext> Core и встроенной...',
 #                 'responsibility': None},
 #     'contacts': None, 'schedule': {'id': 'fullDay', 'name': 'Полный день'}, 'working_days': [],

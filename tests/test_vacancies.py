@@ -56,25 +56,31 @@ def test_equality_vacancies(vacancy_1, vacancy_2):
 
 def test_not_equality_vacancies(vacancy_1):
     """Тестирование сравнения на неравенство по зарплате"""
-    vacancy = Vacancy('001', "Python Developer", "<https://hh.ru/vacancy/123456>", "опыт работы от 3 лет")
+    vacancy = Vacancy("001", "Python Developer", "<https://hh.ru/vacancy/123456>", "опыт работы от 3 лет")
     assert vacancy_1 != vacancy
 
 
 def test_less_vacancies(vacancy_1):
     """Тестирование сравнения на меньшее"""
-    vacancy = Vacancy('001', "Python Developer", "<https://hh.ru/vacancy/123456>", "опыт работы от 3 лет")
+    vacancy = Vacancy("001", "Python Developer", "<https://hh.ru/vacancy/123456>", "опыт работы от 3 лет")
     assert vacancy < vacancy_1
 
 
 def test_more_vacancies(vacancy_1):
     """Тестирование сравнения на большее"""
-    vacancy = Vacancy('001', "Python Developer", "<https://hh.ru/vacancy/123456>", "опыт работы от 3 лет")
+    vacancy = Vacancy("001", "Python Developer", "<https://hh.ru/vacancy/123456>", "опыт работы от 3 лет")
     assert vacancy_1 > vacancy
 
 
 def test_convert_to_json(vacancy_2):
     """Тестирование преобразования объекта класса Вакансия в словарь"""
     dict_vacan = vacancy_2.convert_to_json()
-    assert dict_vacan == {'id': '0022', 'name': 'Python backend', 'url': '<https://hh.ru/vacancy/123489>',
-                          'requirements': 'Опыт от 1 года', 'salary_from': 10000, 'salary_to': 30000,
-                          'currency': 'RUB'}
+    assert dict_vacan == {
+        "id": "0022",
+        "name": "Python backend",
+        "url": "<https://hh.ru/vacancy/123489>",
+        "requirements": "Опыт от 1 года",
+        "salary_from": 10000,
+        "salary_to": 30000,
+        "currency": "RUB",
+    }

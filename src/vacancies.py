@@ -3,8 +3,9 @@ class Vacancy:
 
     __slots__ = ("id", "name", "salary_from", "salary_to", "currency", "url", "requirements")
 
-    def __init__(self, id: str, name: str, url: str, requirements: str,
-                 salary_from=None, salary_to=None, currency: str = 'RUB') -> None:
+    def __init__(
+        self, id: str, name: str, url: str, requirements: str, salary_from=None, salary_to=None, currency: str = "RUB"
+    ) -> None:
         """Инициализация экземпляров класса Vacancy"""
         self.id = id
         self.name = name
@@ -78,7 +79,6 @@ class Vacancy:
             "requirements": self.requirements,
             "salary_from": self.salary_from,
             "salary_to": self.salary_to,
-            "currency": self.currency
+            "currency": self.currency,
         }
         return vacancy_dict
-

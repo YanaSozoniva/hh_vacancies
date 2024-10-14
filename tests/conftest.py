@@ -2,6 +2,7 @@ import pytest
 
 from src.json_file import JsonFile
 from src.vacancies import Vacancy
+from src.vacancies_list import VacanciesList
 
 
 @pytest.fixture
@@ -65,8 +66,8 @@ def vacan_list():
             "relations": [],
             "snippet": {
                 "requirement": "Коммерческий опыт создания веб-приложений с использованием "
-                               "<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) "
-                               "от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной...",
+                "<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask) "
+                "от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной...",
                 "responsibility": None,
             },
             "contacts": None,
@@ -99,8 +100,8 @@ def vacancy_json():
         "relations": [],
         "snippet": {
             "requirement": "Коммерческий опыт создания веб-приложений с использованием "
-                           "<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask)"
-                           " от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной...",
+            "<highlighttext>Python</highlighttext>-фреймворков (Django, FastAPI, Flask)"
+            " от 1 года. Знание <highlighttext>Python</highlighttext> Core и встроенной...",
             "responsibility": None,
         },
         "contacts": None,
@@ -118,3 +119,13 @@ def vacancy_json():
         "adv_context": None,
     }
     return vacancy
+
+
+@pytest.fixture
+def list_vacancies(vacancy_1, vacancy_2):
+    list_vac = VacanciesList()
+    list_vac.add_vacancy(vacancy_1)
+    list_vac.add_vacancy(vacancy_2)
+    list_vac.add_vacancy(Vacancy("0012", "Python", "<https://hh.ru/vacancy/123456>", "опыт работы от 2 лет", 15000))
+    list_vac.add_vacancy(Vacancy("0013", "Python", "<https://hh.ru/vacancy/123456>", "опыт от 1 года"))
+    return list_vac
