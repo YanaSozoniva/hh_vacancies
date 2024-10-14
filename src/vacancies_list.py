@@ -96,3 +96,22 @@ class VacanciesList:
         else:
             print(f'По Вашему запросу найдено {len(filter_vacan)} вакансий')
             return filter_vacan
+
+    def get_vacancies_by_salary(self, salary_from: int | float, salary_to: int | float) -> list:
+        """Метод фильтрации вакансий по зарплате"""
+        if salary_from > salary_to:
+            n = salary_from
+            salary_from = salary_to
+            salary_to = n
+        filter_salary = []
+        try:
+            for vacancy in self.__vacancies:
+                if salary_from <= vacancy.salary_from <= salary_to:
+                    filter_salary.append(vacancy)
+            if len(filter_salary) == 0:
+                raise ValueError("По вашему запросу ничего не найдено")
+        except ValueError as e:
+            print(str(e))
+        else:
+            print(f'По Вашему запросу найдено {len(filter_salary)} вакансий')
+            return filter_salary

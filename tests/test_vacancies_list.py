@@ -131,3 +131,25 @@ def test_filter_vacancies_not_found(capsys, list_vacancies):
     test_filter = list_vacancies.filter_vacancies('pyton')
     message = capsys.readouterr()
     assert message.out.strip().split("\n")[-1] == "По вашему запросу ничего не найдено"
+
+
+def test_get_vacancies_by_salary(capsys, list_vacancies):
+    """Тестирование фильтрации списка вакансий по заданному слову в имени"""
+    test_filter = list_vacancies.get_vacancies_by_salary(10000, 15000)
+    assert len(test_filter) == 3
+    assert test_filter[0].name == "Python Developer"
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-1] == "По Вашему запросу найдено 3 вакансий"
+
+
+def test_get_vacancies_by_salary_not_found(capsys, list_vacancies):
+    """Тестирование фильтрации списка вакансий по заданному слову в имени"""
+    test_filter = list_vacancies.get_vacancies_by_salary(6000000, 1000000)
+    message = capsys.readouterr()
+    assert message.out.strip().split("\n")[-1] == "По вашему запросу ничего не найдено"
+
+
+def test_get_vacancies_by_salary_exchange(capsys, list_vacancies):
+    """Тестирование фильтрации списка вакансий по заданному слову в имени"""
+    test_filter = list_vacancies.get_vacancies_by_salary(15000, 10000)
+    assert len(test_filter) == 3
