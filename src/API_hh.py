@@ -34,11 +34,11 @@ class HeadHunterAPI(BaseHH):
             return True
         raise ValueError("Не удалось получить информацию по вакансиям")
 
-    def get_vacancies(self, keyword: str) -> list[dict[Any, Any]]:
+    def get_vacancies(self, keyword: str, page_count: int = 1) -> list[dict[Any, Any]]:
         """Метод получения вакансия с сайта hh.ry"""
         self.__params["text"] = keyword
 
-        while self.__params.get("page") != 1 and self.__is_connect():
+        while self.__params.get("page") != page_count and self.__is_connect():
             response = requests.get(self.__url, params=self.__params)
             if len(response.json()["items"]) <= 0:
                 raise ValueError("По указанному запросу нет вакансий")
