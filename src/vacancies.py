@@ -4,22 +4,25 @@ class Vacancy:
     __slots__ = ("id", "name", "salary_from", "salary_to", "currency", "url", "requirements")
 
     def __init__(
-        self, id: str, name: str, url: str, requirements: str, salary_from=None, salary_to=None, currency: str = "RUB"
-    ) -> None:
+        self, id: str, name: str, url: str, requirements: str, salary_from: int = 0, salary_to: int = 0,
+            currency: str = "RUB") -> None:
         """Инициализация экземпляров класса Vacancy"""
         self.id = id
         self.name = name
-        if salary_from is None:
-            self.salary_from = 0
-        else:
-            self.salary_from = salary_from
-        if salary_to:
-            self.salary_to = salary_to
-        else:
-            self.salary_to = 0
+        self.salary_from = salary_from
+        self.salary_to = salary_to
+        self.__salary_negative()
         self.currency = currency
         self.url = url
         self.requirements = requirements
+
+    def __salary_negative(self):
+        if self.salary_from < 0:
+            raise ValueError('Вакансию с отрицательным значением зарплаты создать нельзя')
+
+        if self.salary_to < 0:
+            raise ValueError('Вакансию с отрицательным значением зарплаты создать нельзя')
+
 
     def __str__(self) -> str:
         """Метод, который отображает информацию об объекте класса Vacancy для пользователей"""
@@ -38,7 +41,7 @@ class Vacancy:
             url = vacancy["alternate_url"]
             requirements = vacancy["snippet"]["requirement"]
             if vacancy["salary"] is None:
-                salary_from, salary_to, currency = None, None, "RUB"
+                salary_from, salary_to, currency = 0, 0, "RUB"
             else:
                 salary_from = vacancy["salary"]["from"]
                 salary_to = vacancy.get("salary", {}).get("to")

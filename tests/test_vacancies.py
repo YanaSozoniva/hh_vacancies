@@ -24,6 +24,16 @@ def test_vacancies_init_salary_zero():
     assert vacancy.id == "001"
 
 
+def test_vacancies_init_salary_negative(capsys):
+    """Тестирование корректности инициализации объектов класса Vacancies c неуказанной зарплатой"""
+
+    with pytest.raises(ValueError):
+        vacancy = Vacancy("001", "Python Developer", "<https://hh.ru/vacancy/123456>",
+                          "опыт работы от 3 лет", -2, -10000)
+        message = capsys.readouterr()
+        assert message.out.strip().split("\n")[-1] == "Вакансию с отрицательным значением зарплаты создать нельзя"
+
+
 def test_vacancies_str(vacancy_1):
     """Тестирование магического метода str"""
     assert str(vacancy_1) == (
