@@ -17,11 +17,14 @@ class Vacancy:
         self.requirements = requirements
 
     def __salary_negative(self):
+        """Метод валидации зарплаты"""
         if self.salary_from < 0:
-            raise ValueError('Вакансию с отрицательным значением зарплаты создать нельзя')
+            self.salary_from = 0
+            print('Отрицательное значение зарплаты заменено на 0')
 
         if self.salary_to < 0:
-            raise ValueError('Вакансию с отрицательным значением зарплаты создать нельзя')
+            self.salary_to = 0
+            print('Отрицательное значение зарплаты заменено на 0')
 
 
     def __str__(self) -> str:
